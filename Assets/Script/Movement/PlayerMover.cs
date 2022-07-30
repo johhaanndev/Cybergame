@@ -18,31 +18,19 @@ namespace Game.Movement
 
         void Update()
         {
-            if (!health.IsDead())
-                Movement();
             //UpdateAnimator();
         }
 
-        public void StartMoveAction(Vector3 destination)
+        public void StartMoveAction(float hor, float ver)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            Movement();
+            Movement(hor, ver);
         }
 
-        public void Movement()
+        public void Movement(float hor, float ver)
         {
-            float hor = Input.GetAxis("Horizontal");
-            float ver = Input.GetAxis("Vertical");
-
-            if (Mathf.Abs(hor) > 0.1f)
-            {
-                GetComponent<Rigidbody>().velocity += transform.right * hor * speed;
-            }
-            if (Mathf.Abs(ver) > 0.1f)
-            {
-                GetComponent<Rigidbody>().velocity += transform.forward * ver * speed;
-            }
-
+            GetComponent<Rigidbody>().velocity += transform.right * hor * speed;
+            GetComponent<Rigidbody>().velocity += transform.forward * ver * speed;
         }
 
         public void Cancel() { }
