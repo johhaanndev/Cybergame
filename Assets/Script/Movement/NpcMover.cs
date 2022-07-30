@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Game.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class NpcMover : MonoBehaviour, IAction
     {
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
