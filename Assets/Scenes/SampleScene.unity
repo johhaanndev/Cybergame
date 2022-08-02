@@ -312,6 +312,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &963194225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3019052278632592385, guid: 39022ba73a7f2694dbfd8bb9ff16cc31, type: 3}
+  m_PrefabInstance: {fileID: 3019052279590525296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1358056580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319882458485701120, guid: d83ebb3d8295a604ca3a367e2bed86df, type: 3}
       propertyPath: speed
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2482911594512712798, guid: d83ebb3d8295a604ca3a367e2bed86df, type: 3}
       propertyPath: m_Constraints
@@ -393,6 +432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3019052278632592387, guid: 39022ba73a7f2694dbfd8bb9ff16cc31, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3019052278632592388, guid: 39022ba73a7f2694dbfd8bb9ff16cc31, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -446,6 +489,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4776151081545908488, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
+      propertyPath: m_XDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776151081545908488, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
+      propertyPath: m_YDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776151081545908488, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
+      propertyPath: m_ZDamping
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4776151083129175648, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
       propertyPath: m_Name
       value: FollowCamera
@@ -454,6 +509,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1512283844}
+    - target: {fileID: 4776151083129175649, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4776151083129175662, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -498,5 +557,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4776151081545908489, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7325f950f76f9c4597362f9f72ff0e0, type: 3}
