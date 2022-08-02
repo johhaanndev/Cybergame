@@ -21,8 +21,7 @@ namespace Game.Control
             if (health.IsDead())
                 return;
 
-            //if (InteractWithCombat())
-            //    return;
+            //InteractWithCombat()
 
             if (InteractWithMovement())
                 return;

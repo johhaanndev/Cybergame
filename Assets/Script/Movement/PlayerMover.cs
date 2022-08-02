@@ -29,8 +29,7 @@ namespace Game.Movement
 
         public void Movement(float hor, float ver)
         {
-            GetComponent<Rigidbody>().velocity += transform.right * hor * speed;
-            GetComponent<Rigidbody>().velocity += transform.forward * ver * speed;
+            GetComponent<Rigidbody>().velocity = ((transform.right * hor) + (transform.forward * ver )) * speed;
         }
 
         public void Cancel() { }
