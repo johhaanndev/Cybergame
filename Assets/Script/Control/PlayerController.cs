@@ -58,6 +58,7 @@ namespace Game.Control
                 GetComponent<PlayerMover>().StartMoveAction(hor, ver);
                 return true;
             }
+            GetComponent<PlayerMover>().StartMoveAction(0, 0);
             return false;
         }
 

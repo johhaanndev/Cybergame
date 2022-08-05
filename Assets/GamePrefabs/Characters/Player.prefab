@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: e5879b9652e7c3c44816c32cb8ca5cbc, type: 3}
+    - target: {fileID: 1620266440293515093, guid: 4facb22c53cb2744e96c3c7d7adf213b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eec016ad2f993eb41aa6055b567ab770, type: 2}
     - target: {fileID: 2361593139034337386, guid: 4facb22c53cb2744e96c3c7d7adf213b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -71,6 +75,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6626804243531386483, guid: 4facb22c53cb2744e96c3c7d7adf213b, type: 3}
   m_PrefabInstance: {fileID: 2416312422344627534}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &7822222452746491905
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94126072510227748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3220117
+  m_Height: 1.7920818
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.89442945, z: 0}
 --- !u!114 &319882458485701120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,24 +169,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ybot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: e5879b9652e7c3c44816c32cb8ca5cbc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5879b9652e7c3c44816c32cb8ca5cbc, type: 3}
---- !u!1 &8892095173071611362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e5879b9652e7c3c44816c32cb8ca5cbc, type: 3}
-  m_PrefabInstance: {fileID: 8621711180134291635}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &3035270992553783848
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8892095173071611362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.34725475
-  m_Height: 1.7860117
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8935168, z: 0}
