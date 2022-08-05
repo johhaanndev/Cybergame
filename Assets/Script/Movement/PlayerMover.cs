@@ -9,6 +9,7 @@ namespace Game.Movement
     {
         [SerializeField] float speed = 6f;
 
+        private Vector3 direction = Vector3.zero;
         private Vector3 rbVelocity = Vector3.zero;
 
         private Rigidbody rb;
@@ -34,9 +35,12 @@ namespace Game.Movement
         public void Movement(float hor, float ver)
         {
             rbVelocity = new Vector3(hor * speed, 0, ver * speed);
-            var direction = new Vector3(hor, 0, ver); ;
-            transform.rotation = Quaternion.LookRotation(direction);
-            transform.Translate(direction * speed * Time.deltaTime, Space.World);
+            if (hor != 0 || ver != 0)
+            {
+                direction = new Vector3(hor, 0, ver);
+                transform.rotation = Quaternion.LookRotation(direction);
+                transform.Translate(direction * speed * Time.deltaTime, Space.World);
+            }
         }
 
         public void Cancel() { }
