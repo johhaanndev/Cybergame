@@ -3,6 +3,7 @@ using Game.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Control
 {
@@ -51,14 +52,16 @@ namespace Game.Control
 
         private bool InteractWithMovement()
         {
-            float hor = Input.GetAxis("Horizontal");
-            float ver = Input.GetAxis("Vertical");
+            float hor = Gamepad.current.leftStick.x.ReadValue();
+            float ver = Gamepad.current.leftStick.y.ReadValue();
+            float aimHor = Gamepad.current.rightStick.x.ReadValue();
+            float aimVer = Gamepad.current.rightStick.y.ReadValue();
             if (Mathf.Abs(hor) >= 0.1f || Mathf.Abs(ver) >= 0.1f)
             {
-                GetComponent<PlayerMover>().StartMoveAction(hor, ver);
+                GetComponent<PlayerMover>().StartMoveAction(hor, ver, aimHor, aimVer);
                 return true;
             }
-            GetComponent<PlayerMover>().StartMoveAction(0, 0);
+            GetComponent<PlayerMover>().StartMoveAction(0, 0, aimHor, aimVer);
             return false;
         }
 

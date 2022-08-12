@@ -11,6 +11,7 @@ namespace Game.Movement
 
         private Vector3 direction = Vector3.zero;
         private Vector3 rbVelocity = Vector3.zero;
+        private Vector3 look = Vector3.zero;
 
         private Rigidbody rb;
         private Health health;
@@ -26,10 +27,11 @@ namespace Game.Movement
             UpdateAnimator(rbVelocity);
         }
 
-        public void StartMoveAction(float hor, float ver)
+        public void StartMoveAction(float hor, float ver, float aimHor, float aimVer)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             Movement(hor, ver);
+            Rotation(hor, ver, aimHor, aimVer);
         }
 
         public void Movement(float hor, float ver)
@@ -38,9 +40,25 @@ namespace Game.Movement
             if (hor != 0 || ver != 0)
             {
                 direction = new Vector3(hor, 0, ver);
-                transform.rotation = Quaternion.LookRotation(direction);
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
             }
+        }
+
+        public void Rotation(float hor, float ver, float aimHor, float aimVer)
+        {
+            if (Mathf.Abs(aimHor) > 0.1f || Mathf.Abs(aimVer) > 0.1f)
+            {
+                look = new Vector3(aimHor, 0, aimVer);
+            }
+            else
+            {
+                if (Mathf.Abs(hor) > 0.1f || Mathf.Abs(ver) > 0.1f)
+                {
+                    look = new Vector3(hor, 0, ver);
+                }
+            }
+
+            transform.rotation = Quaternion.LookRotation(look);
         }
 
         public void Cancel() { }
@@ -48,8 +66,8 @@ namespace Game.Movement
         private void UpdateAnimator(Vector3 velocity)
         {
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            GetComponent<Animator>().SetFloat("forwardSpeed", localVelocity.z);
+            GetComponent<Animator>().SetFloat("sideSpeed", localVelocity.x);
         }
     }
 }
