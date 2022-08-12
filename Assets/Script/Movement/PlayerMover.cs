@@ -11,6 +11,7 @@ namespace Game.Movement
 
         private Vector3 direction = Vector3.zero;
         private Vector3 rbVelocity = Vector3.zero;
+        private Vector3 look = Vector3.zero;
 
         private Rigidbody rb;
         private Health health;
@@ -45,11 +46,18 @@ namespace Game.Movement
 
         public void Rotation(float hor, float ver, float aimHor, float aimVer)
         {
-            var look = (Mathf.Abs(aimHor) > 0.1f || Mathf.Abs(aimVer) > 0.1f) ?
-                new Vector3(aimHor, 0, aimVer) :
-                new Vector3(hor, 0, ver);
-            
-            Debug.Log($"Aiming to: {look.x.ToString("F2")}, {look.y.ToString("F2")}");
+            if (Mathf.Abs(aimHor) > 0.1f || Mathf.Abs(aimVer) > 0.1f)
+            {
+                look = new Vector3(aimHor, 0, aimVer);
+            }
+            else
+            {
+                if (Mathf.Abs(hor) > 0.1f || Mathf.Abs(ver) > 0.1f)
+                {
+                    look = new Vector3(hor, 0, ver);
+                }
+            }
+
             transform.rotation = Quaternion.LookRotation(look);
         }
 
@@ -58,8 +66,8 @@ namespace Game.Movement
         private void UpdateAnimator(Vector3 velocity)
         {
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            GetComponent<Animator>().SetFloat("forwardSpeed", localVelocity.z);
+            GetComponent<Animator>().SetFloat("sideSpeed", localVelocity.x);
         }
     }
 }
