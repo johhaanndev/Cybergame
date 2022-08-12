@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Core;
 using Game.Movement;
 using System.Collections;
@@ -22,33 +23,20 @@ namespace Game.Control
             if (health.IsDead())
                 return;
 
-            //InteractWithCombat()
+            InteractWithCombat();
 
             if (InteractWithMovement())
                 return;
 
         }
 
-        //private bool InteractWithCombat()
-        //{
-        //    RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-        //    foreach (RaycastHit hit in hits)
-        //    {
-        //        var target = hit.transform.GetComponent<CombatTarget>();
-        //        if (target == null)
-        //            continue;
-
-        //        if (!GetComponent<Fighter>().CanAttack(target.gameObject))
-        //            continue;
-
-        //        if (Input.GetMouseButton(1))
-        //        {
-        //            GetComponent<Fighter>().Attack(target.gameObject);
-        //        }
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        private void InteractWithCombat()
+        {
+            if (Gamepad.current.buttonWest.isPressed)
+            {
+                GetComponent<PlayerFighter>().MeleeAttack();
+            }
+        }
 
         private bool InteractWithMovement()
         {
@@ -63,12 +51,7 @@ namespace Game.Control
             }
             GetComponent<PlayerMover>().StartMoveAction(0, 0, aimHor, aimVer);
             return false;
-        }
-
-        private static Ray GetMouseRay()
-        {
-            return Camera.main.ScreenPointToRay(Input.mousePosition);
-        }
+        }        
     }
 
 }
