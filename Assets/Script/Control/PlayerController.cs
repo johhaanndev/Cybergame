@@ -32,9 +32,9 @@ namespace Game.Control
 
         private void InteractWithCombat()
         {
-            if (Gamepad.current.buttonWest.isPressed)
+            if (Gamepad.current.buttonWest.wasPressedThisFrame)
             {
-                GetComponent<PlayerFighter>().MeleeAttack();
+                GetComponent<PlayerFighter>().AttackBehaviour();
             }
         }
 
